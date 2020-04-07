@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/salary-manager/static/css/main.5f361e03.chunk.css",
+    "main.js": "/salary-manager/static/js/main.5c30f8e8.chunk.js",
+    "main.js.map": "/salary-manager/static/js/main.5c30f8e8.chunk.js.map",
+    "runtime-main.js": "/salary-manager/static/js/runtime-main.b414d3ad.js",
+    "runtime-main.js.map": "/salary-manager/static/js/runtime-main.b414d3ad.js.map",
+    "static/js/2.1c2eea40.chunk.js": "/salary-manager/static/js/2.1c2eea40.chunk.js",
+    "static/js/2.1c2eea40.chunk.js.map": "/salary-manager/static/js/2.1c2eea40.chunk.js.map",
+    "index.html": "/salary-manager/index.html",
+    "precache-manifest.b9b55ecf0f8f715242973d7c78723aac.js": "/salary-manager/precache-manifest.b9b55ecf0f8f715242973d7c78723aac.js",
+    "service-worker.js": "/salary-manager/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/salary-manager/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.1c2eea40.chunk.js.LICENSE.txt": "/salary-manager/static/js/2.1c2eea40.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/salary-manager/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b414d3ad.js",
+    "static/js/2.1c2eea40.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.5c30f8e8.chunk.js"
+  ]
+}
