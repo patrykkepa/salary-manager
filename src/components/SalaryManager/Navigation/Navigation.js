@@ -4,20 +4,39 @@ import { Link, NavLink } from 'react-router-dom'
 import {withRouter} from 'react-router';
 
 import * as ROUTES from '../../../constants/routes';
+import classes from './Navigation.module.scss';
+
+import $ from 'jquery'
 
 
-const Navigation = (props) => {
-  return (
+
+
+class Navigation extends React.Component {
+
+  componentDidMount() {
     
-    <div>
-      
-        <h1>Navigation</h1>
-        <Link to={ROUTES.YEARS}><p>App</p></Link>
-        <Link to={ROUTES.ABOUT}><p>About</p></Link>
-        <Link to={ROUTES.ACCOUNT_SETTINGS}><p>Settings</p></Link>
+  }
+  render() {
 
-    </div>
-  );
+  
+    return (
+      
+      <section id="Navigation" className={classes.Navigation}>
+        <div className={classes.Nav}>
+          <ul>
+              <li><Link to="/">SM</Link></li>
+          </ul>
+          <ul>
+              <li><Link to={ROUTES.YEARS}>App</Link></li>
+              <li><Link to={ROUTES.ABOUT}>About</Link></li>
+              <li><Link to={ROUTES.ACCOUNT_SETTINGS}>Settings</Link></li>
+          </ul>
+
+          
+        </div>
+      </section>
+    );
+  }
 }
 
 export default Navigation;

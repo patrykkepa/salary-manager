@@ -1,29 +1,12 @@
-.App {
+@import '../../../Routing.module.scss';
+
+.Landing {
+    @include flex-column-center;
     text-align: center;
-}
-
-.Applogo {
-    height: 300px;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.Appheader {
-    background-color: #282c34;
-    min-height: 100vh;
+    width: 810px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    margin: 0px auto;
 }
 
-.Applink {
-    color: #2ea0e2;
-}
+.LandingHeader {}

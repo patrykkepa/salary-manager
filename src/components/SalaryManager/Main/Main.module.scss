@@ -1,0 +1,11 @@
+@import '../../../Routing.module.scss';
+
+.Main {
+    padding: 150px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: calc(100vh - 150px);
+    max-width: 810px;
+    margin: 0 auto;
+}

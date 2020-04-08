@@ -7,7 +7,7 @@ import * as ROUTES from '../../../../constants/routes';
 
 function Settings() {
   return (
-    <div>
+    <div id="Settings">
         
         <p>Settings</p>
         <Link to={ROUTES.SIGN_IN}><p>Log out</p></Link>

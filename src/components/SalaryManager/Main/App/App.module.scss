@@ -1,0 +1,51 @@
+@import '../../../../Routing.module.scss';
+
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+
+    ul {
+        list-style-type: none;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0;
+        -webkit-padding-start: 0px;
+
+        li {
+            border: 1px solid rgb(205, 205, 205);
+            width: 100%
+        }
+    }
+
+    a {
+        color: black;
+        font-weight: 300;
+        line-height: 16px;
+        font-size: 13px;
+        text-decoration: none;
+    }
+
+    p {
+        margin: 0px;
+        padding: 20px 0;
+    }
+
+    .YearsActive {
+        border: 1px solid rgb(135, 135, 135);
+        border-bottom: none !important;
+    }
+
+    .MonthsActive {
+        border: 1px solid rgb(135, 135, 135);
+        border-bottom: none !important;
+    }
+
+    .DaysActive {
+        border: 1px solid rgb(135, 135, 135);
+        border-bottom: none !important;
+    }
+}

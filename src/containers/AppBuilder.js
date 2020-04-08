@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router
 
 
 import Navigation from '../components/SalaryManager/Navigation/Navigation';
+import Main from '../components/SalaryManager/Main/Main';
 import App from '../components/SalaryManager/Main/App/App';
 import About from '../components/SalaryManager/Main/About/About';
 import Settings from '../components/SalaryManager/Main/Settings/Settings';
@@ -19,24 +20,17 @@ class AppBuilder extends React.Component {
     render() {
         return(
 
-        <div>
+        <section id="App Builder" className={classes.AppBuilder}>
         
             <Navigation />
         
-            <h3>MAIN</h3>
-            
-            
-                <Switch>
-                    <Route  path={ROUTES.APP} component={App} />
-                    <Route  path={ROUTES.ABOUT} component={About} />
-                    <Route  path={ROUTES.ACCOUNT_SETTINGS} component={Settings} />
-                </Switch>
+            <Main />
             
 
             <Footer />
         
 
-        </div>
+        </section>
 
 
   );

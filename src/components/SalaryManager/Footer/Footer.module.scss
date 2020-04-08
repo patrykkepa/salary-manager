@@ -1,0 +1,12 @@
+@import '../../../Routing.module.scss';
+
+.Footer {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 810px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    margin: 0 auto;
+}

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router
 
 function About() {
   return (
-    <div>
+    <div id="About">
 
         <p>About</p>
 

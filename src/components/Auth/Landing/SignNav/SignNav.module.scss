@@ -1,0 +1,39 @@
+@import '../../../../Routing.module.scss';
+
+.SignNav {
+    cursor: pointer;
+    font-size: 30px;
+
+    ul {
+        list-style-type: none;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0;
+        -webkit-padding-start: 0px;
+    }
+
+    li {
+        width: 100%;
+    }
+
+    a {
+        padding: 20px;
+    }
+
+}
+
+
+.SignNavLinkActive {
+    color: black;
+    border: 1px solid rgb(135, 135, 135);
+    border-bottom: none;
+
+}
+
+.SignNavLink {
+    color: rgb(92, 92, 92);
+    border: 1px solid rgb(205, 205, 205);
+    border-bottom: 1px solid rgb(135, 135, 135);
+}
