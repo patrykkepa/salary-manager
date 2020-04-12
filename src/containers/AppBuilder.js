@@ -22,7 +22,7 @@ class AppBuilder extends React.Component {
 
         <section id="App Builder" className={classes.AppBuilder}>
         
-            <Navigation />
+            
         
             <Main />
             
@@ -36,4 +36,4 @@ class AppBuilder extends React.Component {
   );
 }}
 
-export default AppBuilder;
+export default AppBuilder; 

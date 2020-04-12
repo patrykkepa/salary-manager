@@ -8,17 +8,15 @@ import classes from './Navigation.module.scss';
 
 import $ from 'jquery'
 
+const Navigation = ({ authUser }) => (
+  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+);
 
 
 
-class Navigation extends React.Component {
+class NavigationAuth extends React.Component {
 
-  componentDidMount() {
-    
-  }
-  render() {
-
-  
+  render() { 
     return (
       
       <section id="Navigation" className={classes.Navigation}>
@@ -31,12 +29,21 @@ class Navigation extends React.Component {
               <li><Link to={ROUTES.ABOUT}>About</Link></li>
               <li><Link to={ROUTES.ACCOUNT_SETTINGS}>Settings</Link></li>
           </ul>
-
-          
         </div>
       </section>
     );
   }
 }
+
+const NavigationNonAuth = () => (
+  <section id="Navigation" className={classes.Navigation}>
+        <div className={classes.Nav}>
+          <ul>
+              <li><Link to="/">SM</Link></li>
+          </ul>
+          
+        </div>
+      </section>
+);
 
 export default Navigation;

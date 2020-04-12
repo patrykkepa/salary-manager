@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom'
 
+import SignOutButton from '../../../Auth/SignOut/SignOutButton/SignOutButton';
+
 import * as ROUTES from '../../../../constants/routes';
 
 
@@ -10,7 +12,8 @@ function Settings() {
     <div id="Settings">
         
         <p>Settings</p>
-        <Link to={ROUTES.SIGN_IN}><p>Log out</p></Link>
+        <SignOutButton />
+        <Link to={ROUTES.SIGN_IN}><p>Logowanie</p></Link>
 
     </div>
   );
