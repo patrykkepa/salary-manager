@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 
+import { AuthUserContext, withAuthorization } from '../components/Session/index';
+import { withFirebase } from '../components/Firebase/index'
+
 
 import Navigation from '../components/SalaryManager/Navigation/Navigation';
 import Main from '../components/SalaryManager/Main/Main';
@@ -16,24 +19,28 @@ class AppBuilder extends React.Component {
     constructor(props) {
         super(props);
       }
+
     
     render() {
         return(
-
-        <section id="App Builder" className={classes.AppBuilder}>
+          <AuthUserContext.Consumer>
+            {authUser => (
+              <section id="App Builder" className={classes.AppBuilder}>
         
-            
-        
-            <Main />
-            
-
-            <Footer />
-        
-
-        </section>
+                  <Main />
+                  
+                  <Footer />
+              
+              </section>
+          )}
+          </AuthUserContext.Consumer>
 
 
-  );
-}}
 
-export default AppBuilder; 
+      );
+    };
+
+};
+
+
+export default withAuthorization(AppBuilder); 

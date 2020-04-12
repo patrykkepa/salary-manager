@@ -2,14 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom'
 import {withRouter} from 'react-router';
+import { AuthUserContext } from '../../Session/index';
 
 import * as ROUTES from '../../../constants/routes';
 import classes from './Navigation.module.scss';
 
 import $ from 'jquery'
 
-const Navigation = ({ authUser }) => (
-  <div>{authUser ? <NavigationAuth /> : <NavigationNonAuth />}</div>
+const Navigation = () => (
+  <div>
+    <AuthUserContext.Consumer>
+      {authUser =>
+        authUser ? <NavigationAuth /> : <NavigationNonAuth />
+      }
+    </AuthUserContext.Consumer>
+  </div>
 );
 
 

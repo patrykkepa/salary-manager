@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router
 
 
 
-
 function About() {
   return (
-    <div id="About">
+        <div id="About">
 
-        <p>About</p>
+          <p>About</p>
 
-    </div>
+        </div>
   );
 }
+
 
 export default About;
