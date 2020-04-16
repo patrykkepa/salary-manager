@@ -1,0 +1,59 @@
+@import '../../../../../../Routing.module.scss';
+
+
+.Year {
+    border-bottom: 1px solid rgba(135, 135, 135, 0.200);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 0 30px 0;
+
+}
+
+.YearInfo {
+    @include YearDayMonth-info;
+}
+
+.YearEdit {
+    @include YearDayMonth-edit-create;
+}
+
+.YearEditTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.YearEditButton {
+    @include YearMonthDay-edit--button;
+}
+
+.YearEditInput {
+    @include YearDayMonth-edit-create--input;
+}
+
+.YearCreate {
+    @include YearDayMonth-edit-create;
+}
+
+.YearCreateTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.YearCreateInput {
+    @include YearDayMonth-edit-create--input;
+}
+
+.YearCreateButton {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    a {
+        margin: 30px auto;
+        font-size: 30px !important;
+        border: none;
+        background: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
+}

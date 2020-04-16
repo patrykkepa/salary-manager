@@ -1,0 +1,65 @@
+@import '../../../../../../Routing.module.scss';
+
+
+.Day {
+    border-bottom: 1px solid rgba(135, 135, 135, 0.200);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 20px 30px 20px;
+
+
+}
+
+.DayNotCreated {
+    border-bottom: 1px solid rgba(135, 135, 135, 0.200);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 20px 30px 20px;
+    background-color: rgba(0, 0, 0, 0.010);
+    color: rgba(0, 0, 0, 0.3);
+
+    a {
+        text-decoration: none !important;
+    }
+}
+
+.DayInfo {
+    @include YearDayMonth-info;
+}
+
+.DayInfoMoney {
+    display: flex;
+    flex-direction: row;
+}
+
+.DayEdit {
+    @include YearDayMonth-edit-create;
+}
+
+.DayEditTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.DayEditButton {
+    @include YearMonthDay-edit--button;
+}
+
+.DayEditInput {
+    @include YearDayMonth-edit-create--input;
+}
+
+.DayCreate {
+    @include YearDayMonth-edit-create;
+}
+
+.DayCreateTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.DayCreateInput {
+    @include YearDayMonth-edit-create--input;
+}

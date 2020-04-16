@@ -10,18 +10,27 @@ import * as ROUTES from '../../../constants/routes';
 import classes from './Main.module.scss';
 
 
-const Main = (props)=> {
-  return (
-    
-    <section id="Main" className={classes.Main}>
+
+class Main extends React.Component {
+
+  
+  render() {
+    const loading = this.props.loading;
+    const years = this.props.years;
+
+    return (
+      <section id="Main" className={classes.Main}>
             
         <Switch>
-            <Route  path={ROUTES.APP} component={App} />
+            <Route  path={ROUTES.APP} render={() => <App loading={loading} years={years} />} />
             <Route  path={ROUTES.ABOUT} component={About} />
             <Route  path={ROUTES.ACCOUNT_SETTINGS} component={Settings} />
         </Switch>
-    </section>
-  );
+      </section>
+    )
+    
+    
+  };
 }
 
 export default Main; 

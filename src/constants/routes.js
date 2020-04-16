@@ -13,14 +13,15 @@ export const ABOUT = '/salary-manager/sm/about';
 export const APP = '/salary-manager/sm/app';
 
 export const YEARS = '/salary-manager/sm/app/years';
-export const YEARS_ADD = '/salary-manager/sm/app/years-add';
+export const YEARS_ADD = '/salary-manager/sm/app/years/add';
+export const YEARS_EDIT = '/salary-manager/sm/app/years/edit';
 
 export const MONTHS = '/salary-manager/sm/app/months';
-export const MONTHS_ADD = '/salary-manager/sm/app/months-add';
-export const MONTHS_EDIT = '/salary-manager/sm/app/months-edit';
+export const MONTHS_ADD = '/salary-manager/sm/app/months/add';
+export const MONTHS_EDIT = '/salary-manager/sm/app/months/edit';
 
 export const DAYS = '/salary-manager/sm/app/days';
-export const DAYS_ADD = '/salary-manager/sm/app/days-add';
-export const DAYS_EDIT = '/salary-manager/sm/app/days-edit';
+export const DAYS_ADD = '/salary-manager/sm/app/days/add';
+export const DAYS_EDIT = '/salary-manager/sm/app/days/edit';
 
 export const ADD = '/salary-manager/sm/app/add';

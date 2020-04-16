@@ -5,26 +5,32 @@
     display: flex;
     flex-direction: column;
     justify-items: center;
+    // -webkit-box-shadow: 0px -5px 8px -4px rgba(0, 0, 0, 0.2);
+    // -moz-box-shadow: 0px -5px 8px -4px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0px -5px 8px -4px rgba(0, 0, 0, 0.2);
+}
 
+.AppHeader {
     ul {
         list-style-type: none;
         text-decoration: none;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin: 0;
+        margin: 0px;
         -webkit-padding-start: 0px;
 
         li {
-            border: 1px solid rgb(205, 205, 205);
+            -webkit-box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
             width: 100%
         }
     }
 
     a {
         color: black;
-        font-weight: 300;
-        line-height: 16px;
+        font-weight: 700;
         font-size: 13px;
         text-decoration: none;
     }
@@ -34,18 +40,28 @@
         padding: 20px 0;
     }
 
-    .YearsActive {
-        border: 1px solid rgb(135, 135, 135);
+    .yearsClassActive {
+        -webkit-box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+        box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
         border-bottom: none !important;
+        border-radius: 10px;
     }
 
-    .MonthsActive {
-        border: 1px solid rgb(135, 135, 135);
+    .monthsClassActive {
+        -webkit-box-shadow: 0px -8px 18px -8px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px -8px 18px -8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px -8px 18px -8px rgba(0, 0, 0, 0.2);
         border-bottom: none !important;
+        border-radius: 10px
     }
 
-    .DaysActive {
-        border: 1px solid rgb(135, 135, 135);
+    .daysClassActive {
+        -webkit-box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+        box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
         border-bottom: none !important;
+        border-radius: 10px
     }
+
 }

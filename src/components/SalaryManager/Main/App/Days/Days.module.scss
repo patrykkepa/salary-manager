@@ -2,7 +2,9 @@
 
 
 .Days {
-    border-left: 1px solid rgb(135, 135, 135);
-    border-right: 1px solid rgb(135, 135, 135);
-    border-bottom: 1px solid rgb(135, 135, 135);
+    @include YearsDaysMonths;
+}
+
+.DaysList {
+    @include YearsDaysMonths-list;
 }

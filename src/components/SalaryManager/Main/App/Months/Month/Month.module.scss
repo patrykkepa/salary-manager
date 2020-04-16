@@ -1,0 +1,65 @@
+@import '../../../../../../Routing.module.scss';
+
+
+.Month {
+    border-bottom: 1px solid rgba(135, 135, 135, 0.200);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 20px 30px 20px;
+
+
+}
+
+.MonthNotCreated {
+    border-bottom: 1px solid rgba(135, 135, 135, 0.200);
+    width: 80%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-direction: row;
+    padding: 30px 20px 30px 20px;
+    background-color: rgba(0, 0, 0, 0.010);
+    color: rgba(0, 0, 0, 0.3);
+
+    a {
+        text-decoration: none !important;
+    }
+}
+
+.MonthInfo {
+    @include YearDayMonth-info;
+}
+
+.MonthInfoMoney {
+    display: flex;
+    flex-direction: row;
+}
+
+.MonthEdit {
+    @include YearDayMonth-edit-create;
+}
+
+.MonthEditTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.MonthEditButton {
+    @include YearMonthDay-edit--button;
+}
+
+.MonthEditInput {
+    @include YearDayMonth-edit-create--input;
+}
+
+.MonthCreate {
+    @include YearDayMonth-edit-create;
+}
+
+.MonthCreateTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.MonthCreateInput {
+    @include YearDayMonth-edit-create--input;
+}
