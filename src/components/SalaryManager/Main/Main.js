@@ -15,16 +15,124 @@ class Main extends React.Component {
 
   
   render() {
-    const loading = this.props.loading;
-    const years = this.props.years;
+    const {
+      authUserUid,
+      loading, 
+      creationActive, 
+      editionActive,
+      years, 
+      yearName, 
+      yearRate, 
+      onChangeYearName, 
+      onChangeYearRate, 
+      onCreateYear, 
+      onDeleteYear, 
+      turnOnYearEdition, 
+      turnOffYearEdition, 
+      onEditYear,
+      onYearClicked, 
+
+      monthRate,
+      turnOnMonthCreation, 
+      turnOffMonthCreation,
+      onChangeMonthRate,
+      onCreateMonth,
+      onDeleteMonth,  
+      turnOnMonthEdition, 
+      turnOffMonthEdition, 
+      onEditMonth,
+      onMonthClicked,
+
+      dayRate,
+      dayTip,
+      startHour, 
+      endHour, 
+      previousDayRate, 
+      previousStartHour, 
+      previousEndHour, 
+      previousDayTip,
+      onChangeDayRate,
+      onChangeDayTip,
+      onChangeStartHour,
+      onChangeEndHour,
+      turnOnDayCreation, 
+      turnOffDayCreation,
+      onCreateDay,
+      turnOnDayEdition, 
+      turnOffDayEdition, 
+      onEditDay,
+      cancelEditDay,
+      setDayEarned,
+      onDeleteDay,
+
+      toggleClassYMDNotVisible,
+      toggleClassEditDeleteConfirmationVisible,
+      
+    } = this.props 
+
+   
 
     return (
       <section id="Main" className={classes.Main}>
             
         <Switch>
-            <Route  path={ROUTES.APP} render={() => <App loading={loading} years={years} />} />
+            <Route  path={ROUTES.APP} render={() => 
+              <App 
+                authUserUid={authUserUid}
+                loading={loading} 
+                creationActive={creationActive}
+                editionActive={editionActive}
+                years={years} 
+                yearName={yearName} 
+                yearRate={yearRate}
+                onChangeYearName={onChangeYearName} 
+                onChangeYearRate={onChangeYearRate}
+                onCreateYear={onCreateYear}
+                onDeleteYear ={onDeleteYear}
+                turnOnYearEdition={turnOnYearEdition}
+                turnOffYearEdition={turnOffYearEdition}
+                onEditYear={onEditYear}
+                onYearClicked={onYearClicked}
+
+                monthRate={monthRate}
+                turnOnMonthCreation = {turnOnMonthCreation}  
+                turnOffMonthCreation = {turnOffMonthCreation}
+                onChangeMonthRate={onChangeMonthRate}
+                onCreateMonth={onCreateMonth}
+                onDeleteMonth={onDeleteMonth}
+                turnOnMonthEdition = {turnOnMonthEdition}  
+                turnOffMonthEdition = {turnOffMonthEdition}
+                onEditMonth = {onEditMonth}
+                onMonthClicked={onMonthClicked}
+
+                dayRate={dayRate}
+                dayTip={dayTip}
+                startHour={startHour}
+                endHour={endHour}
+                previousDayRate={previousDayRate}
+                previousDayTip = {previousDayTip}
+                previousStartHour={previousStartHour}
+                previousEndHour={previousEndHour}
+                onChangeDayRate={onChangeDayRate}
+                onChangeDayTip={onChangeDayTip}
+                onChangeStartHour = {onChangeStartHour}
+                onChangeEndHour = {onChangeEndHour}
+                turnOnDayCreation = {turnOnDayCreation}  
+                turnOffDayCreation = {turnOffDayCreation}
+                onCreateDay={onCreateDay}
+                turnOnDayEdition={turnOnDayEdition}
+                turnOffDayEdition={turnOffDayEdition}
+                onEditDay={onEditDay}
+                cancelEditDay={cancelEditDay}
+                setDayEarned={setDayEarned}
+                onDeleteDay={onDeleteDay}
+
+                toggleClassYMDNotVisible={toggleClassYMDNotVisible}
+                toggleClassEditDeleteConfirmationVisible={toggleClassEditDeleteConfirmationVisible}
+              />
+            } />
             <Route  path={ROUTES.ABOUT} component={About} />
-            <Route  path={ROUTES.ACCOUNT_SETTINGS} component={Settings} />
+            <Route  path={ROUTES.ACCOUNT_SETTINGS} render={() => <Settings years={years} />} />
         </Switch>
       </section>
     )
@@ -32,5 +140,5 @@ class Main extends React.Component {
     
   };
 }
-
+ 
 export default Main; 

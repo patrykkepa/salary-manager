@@ -29,6 +29,7 @@ const config = {
     this.auth.signInWithEmailAndPassword(email, password);
 
     doSignOut = () => this.auth.signOut();
+    removeUser = (uid) => this.auth.removeUser(uid)
 
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password =>
@@ -41,6 +42,7 @@ const config = {
      // *** Years API ***
     year = uid => this.db.ref(`years/${uid}`);
     years = () => this.db.ref('years');
+    months = (uid) => this.db.ref(`years/${uid}/months`)
 
   }
 

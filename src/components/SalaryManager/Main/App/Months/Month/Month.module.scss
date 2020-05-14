@@ -7,8 +7,13 @@
     margin: 0 auto 10px auto;
     display: flex;
     flex-direction: row;
-    padding: 30px 20px 30px 20px;
+    padding: 0px 20px 0px 20px;
 
+    a {
+        text-decoration: none;
+        width: 100%;
+        color: inherit;
+    }
 
 }
 
@@ -18,17 +23,35 @@
     margin: 0 auto 10px auto;
     display: flex;
     flex-direction: row;
-    padding: 30px 20px 30px 20px;
+    padding: 0px 20px 0px 20px;
     background-color: rgba(0, 0, 0, 0.010);
     color: rgba(0, 0, 0, 0.3);
 
     a {
         text-decoration: none !important;
+        width: 100%;
+        color: inherit;
+        z-index: -10;
     }
+}
+
+.monthNotVisible {
+    display: none !important;
 }
 
 .MonthInfo {
     @include YearDayMonth-info;
+}
+
+.MonthInfoBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.MonthInfoBodyNotVisible {
+    display: none !important;
 }
 
 .MonthInfoMoney {
@@ -62,4 +85,59 @@
 
 .MonthCreateInput {
     @include YearDayMonth-edit-create--input;
+}
+
+.MonthCreateButton {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    a {
+        margin: 30px auto;
+        font-size: 30px !important;
+        border: none;
+        background: none;
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
+
+.monthCreateButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.monthCreateButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.monthCreateConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.monthCreateConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.monthEditButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.monthEditButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.monthEditConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.monthEditConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.monthDeleteConfirmation {
+    @include YearMonthDay-delete-Confirmation;
+}
+
+.monthDeleteConfirmationVisible {
+    @include YearMonthDay-delete-ConfirmationVisible
 }

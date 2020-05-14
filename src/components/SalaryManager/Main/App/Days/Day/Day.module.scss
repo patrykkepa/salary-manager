@@ -7,7 +7,7 @@
     margin: 0 auto 10px auto;
     display: flex;
     flex-direction: row;
-    padding: 30px 20px 30px 20px;
+    padding: 0px 20px 0px 20px;
 
 
 }
@@ -18,7 +18,7 @@
     margin: 0 auto 10px auto;
     display: flex;
     flex-direction: row;
-    padding: 30px 20px 30px 20px;
+    padding: 0px 20px 0px 20px;
     background-color: rgba(0, 0, 0, 0.010);
     color: rgba(0, 0, 0, 0.3);
 
@@ -27,8 +27,23 @@
     }
 }
 
+.dayNotVisible {
+    display: none !important;
+}
+
 .DayInfo {
     @include YearDayMonth-info;
+}
+
+.DayInfoBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.DayInfoBodyNotVisible {
+    display: none !important;
 }
 
 .DayInfoMoney {
@@ -62,4 +77,44 @@
 
 .DayCreateInput {
     @include YearDayMonth-edit-create--input;
+}
+
+.dayCreateButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.dayCreateButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.dayCreateConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.dayCreateConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.dayEditButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.dayEditButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.dayEditConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.dayEditConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.dayDeleteConfirmation {
+    @include YearMonthDay-delete-Confirmation;
+}
+
+.dayDeleteConfirmationVisible {
+    @include YearMonthDay-delete-ConfirmationVisible
 }

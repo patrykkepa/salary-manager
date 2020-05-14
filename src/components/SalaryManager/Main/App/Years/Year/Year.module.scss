@@ -7,8 +7,17 @@
     margin: 0 auto 10px auto;
     display: flex;
     flex-direction: row;
-    padding: 30px 0 30px 0;
+    padding: 0px 0 0px 0;
 
+    a {
+        text-decoration: none;
+        width: 100%;
+        color: inherit;
+    }
+}
+
+.yearNotVisible {
+    display: none !important;
 }
 
 .YearInfo {
@@ -56,4 +65,44 @@
         cursor: pointer;
         text-decoration: none;
     }
+}
+
+.yearCreateButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.yearCreateButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.yearCreateConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.yearCreateConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.yearEditButtons {
+    @include YearMonthDay-create-edit-Buttons
+}
+
+.yearEditButtonsNotVisible {
+    @include YearMonthDay-create-edit-ButtonsNotVisible
+}
+
+.yearEditConfirmation {
+    @include YearMonthDay-craete-edit-Confirmation
+}
+
+.yearEditConfirmationVisible {
+    @include YearMonthDay-create-edit-ConfirmationVisible
+}
+
+.yearDeleteConfirmation {
+    @include YearMonthDay-delete-Confirmation;
+}
+
+.yearDeleteConfirmationVisible {
+    @include YearMonthDay-delete-ConfirmationVisible
 }
