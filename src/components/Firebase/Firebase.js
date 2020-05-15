@@ -19,7 +19,7 @@ const config = {
 
       this.auth = app.auth();
       this.db = app.database();
-    }
+    } 
 
     // *** Auth API ***
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -29,7 +29,6 @@ const config = {
     this.auth.signInWithEmailAndPassword(email, password);
 
     doSignOut = () => this.auth.signOut();
-    removeUser = (uid) => this.auth.removeUser(uid)
 
     doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
     doPasswordUpdate = password =>
@@ -40,9 +39,15 @@ const config = {
     users = () => this.db.ref('users');
 
      // *** Years API ***
-    year = uid => this.db.ref(`years/${uid}`);
-    years = () => this.db.ref('years');
+    // year = uid => this.db.ref(`years/${uid}`);
+    // years = () => this.db.ref('years');
+    year = (yid) => this.db.ref(`users/${this.auth.currentUser.uid}/years/${yid}`)
+    years = () => this.db.ref(`users/${this.auth.currentUser.uid}/years`)
     months = (uid) => this.db.ref(`years/${uid}/months`)
+
+    //
+    // lata = (uid) => this.db.ref(`users/${uid}/years`)
+    // rok = (uid, yid) => this.db.ref(`users/${uid}/years/${yid}`)
 
   }
 

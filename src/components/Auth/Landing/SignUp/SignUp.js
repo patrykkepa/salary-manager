@@ -32,6 +32,7 @@ class SignUp extends React.Component {
           .set({
             username,
             email,
+            years: ''
           });
       })
       .then(authUser => {
@@ -66,7 +67,6 @@ class SignUp extends React.Component {
     return (
       <div className={classes.SignUp}>
   
-          <p> Sign Up !</p>
   
           <form className={classes.SignUpForm} onSubmit={this.onSubmit} >
   

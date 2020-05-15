@@ -18,9 +18,9 @@ class SignNav extends React.Component {
 
             <div className={classes.SignNav}>
                 <ul>
-                    <li className={this.props.active ? classes.SignNavLinkActive : classes.SignNavLink}
+                    <li className={this.props.active ? classes.SignInNavLinkActive : classes.SignNavLink}
                         onClick={this.props.SignInActive}><p>Sign In</p></li>
-                    <li className={this.props.active ? classes.SignNavLink : classes.SignNavLinkActive}
+                    <li className={this.props.active ? classes.SignNavLink : classes.SignUpNavLinkActive}
                         onClick={this.props.SignUpActive}><p>Sign Up</p></li>
                 </ul>
                 

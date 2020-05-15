@@ -46,12 +46,10 @@ class Years extends React.Component {
             <Switch>
                 <Route  exact path={ROUTES.YEARS} render={() => 
                   <React.Fragment>
-                  <p>Years</p>
                   
                     {years ? 
                       (<ul className={classes.YearsList}>
                         {years.map(year => (
-                          
                           !year.edition.yearEdited ? 
                             <Year  
                               key={year.uid} 

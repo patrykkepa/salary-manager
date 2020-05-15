@@ -25,15 +25,28 @@
 }
 
 
-.SignNavLinkActive {
-    color: black;
-    border: 1px solid rgb(135, 135, 135);
-    border-bottom: none;
+.SignInNavLinkActive {
+    -webkit-box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    border-bottom: none !important;
+    border-radius: 0px;
 
+}
+
+.SignUpNavLinkActive {
+    -webkit-box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    box-shadow: -5px -4px 8px -4px rgba(0, 0, 0, 0.2);
+    border-bottom: none !important;
+    border-radius: 0px
 }
 
 .SignNavLink {
     color: rgb(92, 92, 92);
-    border: 1px solid rgb(205, 205, 205);
-    border-bottom: 1px solid rgb(135, 135, 135);
+    -webkit-box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0px -15px 9px -10px rgba(0, 0, 0, 0.05);
+    // border: 1px solid rgb(205, 205, 205);
+    // border-bottom: 1px solid rgb(135, 135, 135);
 }

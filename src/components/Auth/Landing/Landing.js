@@ -33,7 +33,6 @@ class Landing extends React.Component {
     return (
       <div className={classes.Landing}>
 
-          <p> LANDING PAGE</p>
           <SignNav SignInActive={this.SignInActive} SignUpActive={this.SignUpActive} active={this.state.signIn} />
           <div className={classes.LandingHeader}>
             {this.state.signIn ? <SignIn /> : <SignUp />}

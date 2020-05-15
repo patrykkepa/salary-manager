@@ -45,7 +45,6 @@ class SignIn extends React.Component {
       
       <div className={classes.SignIn}>
   
-          <p> Sign In !</p>
           
           <form className={classes.SignInForm} onSubmit={this.onSubmit}>
   

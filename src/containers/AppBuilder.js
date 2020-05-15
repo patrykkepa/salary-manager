@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 
-import { AuthUserContext, withAuthorization } from '../components/Session/index';
+import { AuthUserContext, withAuthorization, withAuthentication} from '../components/Session/index';
 import Firebase, { withFirebase } from '../components/Firebase/index'
 
 
@@ -80,7 +80,7 @@ class AppBuilder extends React.Component {
         
       }
     componentDidMount() {
-      console.log('App builder did mount')
+      
       this.setState({ loading: true });
       
       this.props.firebase.years().on('value', snapshot => { 
@@ -104,9 +104,10 @@ class AppBuilder extends React.Component {
         });
     };
 
-    componentWillUnmount() {
-      this.props.firebase.years().off();
-    }
+    // kończenie nasłuchiwania nie działa po dodaniu ściezki w firebase years() wskazującej na currenUser.uid
+    // componentWillUnmount() {
+    //   this.props.firebase.years().off();
+    // }
 
 
 
@@ -123,7 +124,7 @@ class AppBuilder extends React.Component {
       this.setState({ yearRate: event.target.value});
     }
     onCreateYear = (event, authUser) => {
-      this.props.firebase.years().child(this.state.yearName).set({
+      this.props.firebase.years(authUser.uid).child(this.state.yearName).set({
         yearName: this.state.yearName,
         userId: authUser.uid,
         yearRate: {
@@ -310,6 +311,9 @@ class AppBuilder extends React.Component {
     onDeleteMonth = (year, month, yearRate) => {
       this.props.firebase.years().child(year).child('months').child(month).child('created').set({
         monthIsCreated: false
+      });
+      this.props.firebase.years().child(year).child('months').child(month).child('active').set({
+        monthActive: false
       });
       this.props.firebase.years().child(year).child('months').child(month).child('monthRate').set({
         monthRate: yearRate,

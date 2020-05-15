@@ -90,9 +90,9 @@ class App extends React.Component {
             : <li id="DaysLink" onClick={this.doDaysClassActive} className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><Link to={ROUTES.DAYS}><p>Days</p></Link></li>}
 
             </ul>
-            <p>{authUserUid}</p>
+            {/* <p>{authUserUid}</p>
             {years.map(year => 
-            <p>{year.userId}</p>)}
+            <p>{year.userId}</p>)} */}
         </div>
           
           
@@ -119,6 +119,7 @@ class App extends React.Component {
               }/>
               <Route  path={ROUTES.MONTHS} render={() => 
                 <Months 
+                  authUserUid={authUserUid}
                   loading={loading} 
                   years={years} 
                   yearName={yearName}
@@ -138,6 +139,7 @@ class App extends React.Component {
               />
               <Route  path={ROUTES.DAYS} render={() =>
                 <Days 
+                  authUserUid={authUserUid}
                   loading={loading} 
                   years={years} 
                   dayRate={dayRate}
