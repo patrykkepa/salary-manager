@@ -18,18 +18,15 @@ onRemove(props) {
 
       this.props.firebase.auth.onAuthStateChanged(
         authUser => {
-          // this.props.years.map(year =>{
-          //   year.userId == authUser.uid ?
-          //     this.props.firebase.years().child(year.yearName).set({})
-          //   : console.log('chuje')
-          // })
+          
           this.props.firebase.user(authUser.uid).remove()
           .then(
-            authUser.delete()
+            authUser.delete(),
           ).then(
             function() {
-            console.log('usunięto uzytkownika')
+
             window.location.reload();
+            
           }).catch(function(error) {
             console.log('error', error)
           });
