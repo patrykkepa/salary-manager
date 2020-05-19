@@ -73,26 +73,36 @@ class App extends React.Component {
     } = this.props
 
     const adres = window.location.href;
-    
+     
     return (
     
       <div id="App" className={classes.App}>
         <div className={classes.AppHeader}>
-          <ul>
-            {(creationActive || editionActive) ? 
-              <li id="YearsLink" className={(adres.includes('years')) ? classes.yearsClassActive : classes.none}><a><p>Years</p></a></li>
-            : <li id="YearsLink" onClick={this.doYearsClassActive} className={(adres.includes('years')) ? classes.yearsClassActive : classes.none}><Link to={ROUTES.YEARS}><p>Years</p></Link></li>}
-            {(creationActive || editionActive) ? 
-              <li id="MonthsLink" className={(adres.includes('months')) ? classes.monthsClassActive : classes.none}><a><p>Months</p></a></li>
-            : <li id="MonthsLink" onClick={this.doMonthsClassActive} className={(adres.includes('months')) ? classes.monthsClassActive : classes.none}><Link to={ROUTES.MONTHS} ><p>Months</p></Link></li>}
-            {(creationActive || editionActive) ? 
-              <li id="DaysLink" className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><a><p>Days</p></a></li>
-            : <li id="DaysLink" onClick={this.doDaysClassActive} className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><Link to={ROUTES.DAYS}><p>Days</p></Link></li>}
+          {
+            !years ?
+              <ul>
+                <li id="YearsLink" className={(adres.includes('years')) ? classes.yearsClassActive : classes.none}><a><p>Years</p></a></li>
+                <li id="MonthsLink" className={(adres.includes('months')) ? classes.monthsClassActive : classes.none}><a><p>Months</p></a></li>
+                <li id="DaysLink" className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><a><p>Days</p></a></li>
+              </ul>
+            :
+            
+            <ul>
+              {(creationActive || editionActive) ? 
+                <li id="YearsLink" className={(adres.includes('years')) ? classes.yearsClassActive : classes.none}><a><p>Years</p></a></li>
+              : <li id="YearsLink" onClick={this.doYearsClassActive} className={(adres.includes('years')) ? classes.yearsClassActive : classes.none}><Link to={ROUTES.YEARS}><p>Years</p></Link></li>}
+              {(creationActive || editionActive) ? 
+                <li id="MonthsLink" className={(adres.includes('months')) ? classes.monthsClassActive : classes.none}><a><p>Months</p></a></li>
+              : <li id="MonthsLink" onClick={this.doMonthsClassActive} className={(adres.includes('months')) ? classes.monthsClassActive : classes.none}><Link to={ROUTES.MONTHS} ><p>Months</p></Link></li>}
+              {(creationActive || editionActive) ? 
+                <li id="DaysLink" className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><a><p>Days</p></a></li>
+              : <li id="DaysLink" onClick={this.doDaysClassActive} className={(adres.includes('days')) ? classes.daysClassActive : classes.none}><Link to={ROUTES.DAYS}><p>Days</p></Link></li>}
 
             </ul>
-            {/* <p>{authUserUid}</p>
-            {years.map(year => 
-            <p>{year.userId}</p>)} */}
+          }
+          
+       
+
         </div>
           
           
@@ -178,5 +188,3 @@ class App extends React.Component {
 }}
 
 export default App;
-
-// export {doYearsClassActive, doMonthsClassActive, doDaysClassActive };

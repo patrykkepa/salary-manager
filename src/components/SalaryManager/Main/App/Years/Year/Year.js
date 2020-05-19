@@ -2,6 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt} from '@fortawesome/free-regular-svg-icons'
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
+
+
 
 import { AuthUserContext } from '../../../../../Session/index';
 import { doMonthsClassActive } from '../../App'
@@ -33,14 +41,21 @@ function Year(props) {
         <Link to={ROUTES.MONTHS} onClick={() => {props.onYearClicked(props.year.yearName)}}> 
           <div className={classes.YearInfo}>
             <div><h1>{props.year.yearName}</h1></div>
-            <div><h3>{props.year.yearHoursAmount.yearHoursAmount}</h3></div>
-            <div><h2>{props.year.yearEarned.yearEarned},-</h2></div>
+            <div className={classes.YearInfoBody}>
+              <div>
+                <h3>
+                  {props.year.yearHoursAmount.yearHoursAmount}h
+                </h3>
+              </div>
+              <div><h2>{props.year.yearEarned.yearEarned},-</h2></div>
+            </div>
+            
           </div>
         </Link>
         
-        <button className={classes.YearEditButton} onClick={() => {
+        <button className={classes.YearEditTrigger} onClick={() => {
           props.turnOnYearEdition(props.year.yearName); 
-          props.toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible)}} >⚙️</button>
+          props.toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible)}} ><FontAwesomeIcon icon={faEllipsisV} /></button>
         
     </div>
 
@@ -71,7 +86,7 @@ class YearEdit extends React.Component {
     const isFilled = yearRate === '';
     return (
     <form className={classes.YearEdit} >
-      <div className={classes.YearEditTitle}><p>Edit </p> <h1>{year.yearName}</h1> <p> here</p></div>
+      <div className={classes.YearEditTitle}><h1>{year.yearName}</h1></div>
       <div className={classes.YearEditInput}>
       <div></div>
         <input
@@ -82,54 +97,58 @@ class YearEdit extends React.Component {
         />
       </div>
       <div className={classes.yearEditButtons}>
-        <div id="invalidFormat"><p> </p></div>  
+        <div id="invalidFormat" className={classes.invalidFormat}><p> </p></div>  
         <button className={classes.YearEditButton} onClick={(event) => {
-          toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearDeleteConfirmation, classes.yearEditButtonsNotVisible, classes.yearDeleteConfirmationVisible);}} 
-        >🗑️</button>
+          toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearDeleteConfirmation, classes.yearEditButtonsNotVisible, classes.yearDeleteConfirmationVisible);}} >
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
         <button className={classes.YearEditButton} onClick={() => {
           turnOffYearEdition(year.yearName); 
-          toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible)}} 
-        >❌</button>
+          toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible)}} >
+          <FontAwesomeIcon icon={faBan} />
+        </button>
         {
           isValid ? 
             <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={(event) => {
-              toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearEditConfirmation, classes.yearEditButtonsNotVisible, classes.yearEditConfirmationVisible);}}
-            >✔️</button>
+              toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearEditConfirmation, classes.yearEditButtonsNotVisible, classes.yearEditConfirmationVisible);}}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
           : <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={(event) => {
-              invalidFormatAlert(event, yearRate)}}
-            >✔️</button>
+              invalidFormatAlert(event, yearRate)}}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
         }
       </div>
 
       <div className={classes.yearEditConfirmation}>            
-        <p>Are you sure you want to change the data?</p>
+        <p>Update?</p>
         <div>
-          <button className={classes.YearEditButton} onClick={(event) => {
+          <button className={classes.YearEditButtonConfirm} onClick={(event) => {
             invalidFormatAlert(event, yearNameValid, yearRateValid); 
             toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearEditConfirmation, classes.yearEditButtonsNotVisible, classes.yearEditConfirmationVisible);}}
           >NO</button>
-          <button className={classes.YearEditButton} onClick={(event) => {
+          <button className={classes.YearEditButtonConfirm} onClick={(event) => {
             turnOffYearEdition(year.yearName);
             onEditYear(year.yearName, yearRate)
             toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible); 
             toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearEditConfirmation, classes.yearEditButtonsNotVisible, classes.yearEditConfirmationVisible);}}
-          >YES</button>
+          >GO!</button>
         </div>
       </div>
 
       <div className={classes.yearDeleteConfirmation}>            
-        <p>Are you sure you want to delete the year?</p>
+        <p>Delete?</p>
         <div>
-          <button className={classes.YearEditButton} onClick={(event) => {
+          <button className={classes.YearEditButtonConfirm} onClick={(event) => {
             invalidFormatAlert(event, yearNameValid, yearRateValid); 
             toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearDeleteConfirmation, classes.yearEditButtonsNotVisible, classes.yearDeleteConfirmationVisible);}}
           >NO</button>
-          <button className={classes.YearEditButton} onClick={(event) => {
+          <button className={classes.YearEditButtonConfirm} onClick={(event) => {
             turnOffYearEdition(year.yearName);
             onDeleteYear(year.yearName);
             toggleClassYMDNotVisible(classes.Year, classes.YearCreateButton, classes.yearNotVisible); 
             toggleClassEditDeleteConfirmationVisible(event, classes.yearEditButtons, classes.yearDeleteConfirmation, classes.yearEditButtonsNotVisible, classes.yearDeleteConfirmationVisible);}}
-          >YES</button>
+          >GO!</button>
         </div>
       </div>
       
@@ -170,11 +189,20 @@ class YearCreate extends React.Component {
                 />
               </div>
               <div>        
-                <div id="invalidFormat"></div>    
-                <Link to={ROUTES.YEARS} className={classes.YearEditButton}>❌</Link>
+                <div id="invalidFormat" className={classes.invalidFormat}></div>    
+                <Link to={ROUTES.YEARS} >
+                  <button className={classes.YearEditButton} >
+                    <FontAwesomeIcon icon={faBan} />
+                  </button>
+                </Link>
                 {
-                  isValid ? <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={this.props.history.goBack}>✔️</button>
-                  : <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={event => invalidFormatAlert(event, yearNameValid, yearRateValid, yearName)}>✔️</button>
+                  isValid ? 
+                    <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={this.props.history.goBack}>
+                      <FontAwesomeIcon icon={faCheck} />
+                    </button>
+                  : <button className={classes.YearEditButton} type="submit" disabled={isFilled} onClick={event => invalidFormatAlert(event, yearNameValid, yearRateValid, yearName)}>
+                      <FontAwesomeIcon icon={faCheck} />
+                    </button>
                 }
                 
               </div>
@@ -192,7 +220,7 @@ class YearCreate extends React.Component {
 function YearCreateButton() {
   return(
       <div className={classes.YearCreateButton}>
-        <Link to={ROUTES.YEARS_ADD}>➕</Link> 
+        <Link to={ROUTES.YEARS_ADD}><FontAwesomeIcon icon={faPlusSquare} /></Link> 
       </div>
       
   )

@@ -5,9 +5,11 @@ import { withAuthentication } from './components/Session/index';
 import Landing from './components/Auth/Landing/Landing';
 import AppBuilder from './containers/AppBuilder';
 import Navigation from './components/SalaryManager/Navigation/Navigation';
+import MobileMenu from './components/SalaryManager/NavigationMobile/MobileMenu'
 
 import * as ROUTES from './constants/routes';
 import classes from './Routing.module.scss';
+
 
 class Routing extends React.Component {
   constructor(props) {
@@ -17,10 +19,9 @@ class Routing extends React.Component {
   render() { 
     return (
  
-    
       <Router>
-
         <Navigation />
+        <MobileMenu />
 
         <Switch>
           <Route exact path={ROUTES.SIGN_IN} component={Landing} />

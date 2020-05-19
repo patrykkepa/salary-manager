@@ -1,6 +1,9 @@
 import React from 'react';
 import { withFirebase } from '../../../Firebase';
 import { withAuthentication } from '../../../Session/index'
+import classes from './DeleteUserButton.module.scss';
+
+
 
 
  
@@ -40,7 +43,7 @@ onRemove(props) {
 
     return (
        <React.Fragment>
-        <button onClick={() => this.onRemove()}>
+        <button className={classes.DeleteUserButton} onClick={() => this.onRemove()}>
           Remove Account
         </button>
  

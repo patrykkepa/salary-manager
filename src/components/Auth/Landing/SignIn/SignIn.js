@@ -63,7 +63,7 @@ class SignIn extends React.Component {
               placeholder="Password"
             />
             <button disabled={isInvalid} type="submit">
-              Sign In
+              Go!
             </button>
   
             {error && <p>{error.message}</p>}

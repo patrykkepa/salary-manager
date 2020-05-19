@@ -37,9 +37,8 @@ class Years extends React.Component {
       
       <div id="Years" className={classes.Years}>
   
-          {loading && <p>Loading data...</p>}  
+          {loading && <h5>Loading data...</h5>}  
   
-          
   
             {/* do celów projektowych */}
   
@@ -51,6 +50,7 @@ class Years extends React.Component {
                       (<ul className={classes.YearsList}>
                         {years.map(year => (
                           !year.edition.yearEdited ? 
+                            
                             <Year  
                               key={year.uid} 
                               year={year} 
@@ -75,7 +75,7 @@ class Years extends React.Component {
                           
                           
                         ))}
-                      </ul>) : (<p>You can create you first year</p>)} 
+                      </ul>) : (<h5>You can create you first year</h5>)} 
                     <YearCreateButton />
                   </React.Fragment>  } 
                 />

@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  // font-family: 'Merriweather', serif;
+  font-family: 'Montserrat', 'NUNITO', 'Ubuntu', 'Raleway', 'Karla', sans-serif;
 }
 
 // MIXINS
@@ -37,6 +39,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 30px 0 0 0;
+
+  h5 {
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
 
 }
 
@@ -80,12 +88,40 @@ body {
 
 @mixin YearMonthDay-edit--button {
   text-decoration: none;
+  font-size: 28px;
+  margin: 0 15px;
+  padding: 30px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+}
+
+@mixin YearMonthDay-edit--buttonConfirm {
+  text-decoration: none;
+  font-size: 28px;
+  margin: 0 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+}
+
+@mixin YearMonthDay-edit--trigger {
+  text-decoration: none;
   font-size: 20px;
   margin-left: 20px;
   padding: 30px 0;
   background: none;
   border: none;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.4);
+
+  :hover {
+    color: black;
+    transition: ease-in;
+    transition-duration: 100ms;
+  }
 }
 
 @mixin YearDayMonth-edit-create {
@@ -101,6 +137,7 @@ body {
     font-size: 20px !important;
     cursor: pointer;
     text-decoration: none;
+    color: black !important;
   }
 
   p {
@@ -109,8 +146,9 @@ body {
 
   h1 {
     font-size: 25px;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0px;
+    border-bottom: 4px solid #ffcd00;
   }
 }
 
@@ -142,17 +180,22 @@ body {
     border-right: none;
     border-left: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
   }
 
   input::placeholder {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-size: 12px;
   }
 }
 
 @mixin YearMonthDay-create-edit-Buttons {
   color: inherit;
+
 }
 
 @mixin YearMonthDay-create-edit-ButtonsNotVisible {
@@ -161,6 +204,12 @@ body {
 
 @mixin YearMonthDay-craete-edit-Confirmation {
   display: none;
+
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
 }
 
 @mixin YearMonthDay-create-edit-ConfirmationVisible {
@@ -170,6 +219,12 @@ body {
 
 @mixin YearMonthDay-delete-Confirmation {
   display: none;
+
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
 }
 
 @mixin YearMonthDay-delete-ConfirmationVisible {
@@ -177,6 +232,208 @@ body {
   flex-direction: column;
 }
 
+@mixin path {
+  text-align: left;
+  margin: 0 10%;
+  color: #fab201;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+
 
 // VARIABLES
 $color-nav-logo: #0098ff;
+
+
+// MEDIA QUERIES
+
+@media only screen and (max-width: 850px) {
+  .Footer {
+    max-width: 100%;
+    padding: 0 10px;
+
+    h1 {
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  }
+
+  .Main {
+    padding: 57px 0 0 0 !important;
+    min-height: calc(100vh - 57px) !important;
+  }
+
+  .Year,
+  .Month,
+  .Day {
+    width: 90% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  .YearInfo,
+  .MonthInfo,
+  .DayInfo {
+    padding: 18px 0 !important;
+    width: 100% !important;
+
+    h1,
+    h2,
+    h3,
+    h4 button {
+      font-size: 20px !important;
+    }
+
+  }
+
+  .YearInfoBody,
+  .MonthInfoBody,
+  .DayInfoBody {
+    width: 60% !important;
+  }
+
+  .YearEditTrigger,
+  .MonthEditTrigger,
+  .DayEditTrigger {
+    padding: 18px 0 !important;
+    margin-left: 10px !important;
+
+    h1,
+    h2,
+    h3,
+    button {
+      font-size: 23px !important;
+    }
+  }
+
+  .MonthNotCreated,
+  .DayNotCreated {
+    width: 90% !important;
+    padding: 0 0 !important;
+    margin: 0 auto !important;
+    ;
+  }
+
+  .MonthCreateButton,
+  .DayCreateButton {
+    padding: 18px 0 !important;
+  }
+
+  .YearCreate,
+  .YearEdit,
+  .MonthCreate,
+  .MonthEdit,
+  .DayCreate,
+  .DayEdit {
+    width: 90% !important;
+    padding: 0px !important;
+    margin-top: 20px !important;
+  }
+
+  .YearCreateInput,
+  .YearEditInput,
+  .MonthCreateInput,
+  .MonthEditInput,
+  .DayCreateInput,
+  .DayEditInput {
+    margin-top: 25px !important;
+
+    input {
+      width: 100% !important;
+      margin-bottom: 20px !important;
+    }
+  }
+
+  .About {
+    padding: 0 10px 0 10px !important;
+
+    h1 {
+      font-size: 22px !important;
+    }
+
+    h2 {
+      font-size: 20px !important;
+    }
+
+    p {
+      font-size: 16px !important;
+    }
+
+    .AboutApp {}
+
+    .AboutMe {
+      margin: 50px 0 100px 0 !important;
+    }
+  }
+
+  .Settings {
+    padding: 20px 20px 0 20px !important;
+
+    .SettingsInfo {
+      padding-left: 0% !important;
+      text-align: left !important;
+
+      h1 {
+        font-size: 22px !important;
+      }
+
+      p {
+        font-size: 16px !important;
+      }
+
+      button {
+        background-color: white !important;
+      }
+    }
+
+    .SettingsDelete {
+      padding-left: 0% !important;
+      text-align: right !important;
+
+      h1 {
+        font-size: 22px !important;
+      }
+
+      p {
+        font-size: 16px !important;
+        margin-right: 10px !important;
+      }
+
+      button {
+        background-color: white !important;
+      }
+    }
+
+  }
+
+  .Landing {
+    width: 100% !important;
+    padding-top: 50px !important;
+  }
+
+  .SignNav {
+    p {
+      margin: 0 !important;
+      padding: 15px 0 !important;
+    }
+  }
+
+  .SignInForm,
+  .SignUpForm {
+    margin: 50px auto 0 auto !important;
+    width: 90% !important;
+
+    input {
+      width: 100% !important;
+      margin-bottom: 20px !important;
+    }
+
+    button {
+      background-color: white !important;
+    }
+  }
+}

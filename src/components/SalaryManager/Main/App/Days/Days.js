@@ -50,7 +50,7 @@ class Days extends React.Component {
                     year.months.map(month => 
                       month.active.monthActive &&
                       <React.Fragment>
-                        <p>{year.yearName} {month.monthName}</p>
+                        <p className={classes.path}>{year.yearName} ➜ {month.monthName}</p>
                         <ul className={classes.DaysList}>
                           {month.days.map(day => 
                             day.creation.dayCreation ?
@@ -120,7 +120,7 @@ class Days extends React.Component {
                     )
                 
                 )
-              : <p>There is no year added.</p>}
+              : <h5>There is no year added.</h5>}
             
             </React.Fragment> 
           } />

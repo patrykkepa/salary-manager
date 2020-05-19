@@ -100,7 +100,7 @@ class SignUp extends React.Component {
             />
             
             
-                <button disabled={isInvalid} type="submit">Submit</button>
+                <button disabled={isInvalid} type="submit">Become a user</button>
 
               {error && <p>{error.message}</p>}
             

@@ -16,6 +16,8 @@ class Main extends React.Component {
   
   render() {
     const {
+      authUser,
+      authUserName,
       authUserUid,
       loading, 
       creationActive, 
@@ -126,13 +128,13 @@ class Main extends React.Component {
                 cancelEditDay={cancelEditDay}
                 setDayEarned={setDayEarned}
                 onDeleteDay={onDeleteDay}
-
+ 
                 toggleClassYMDNotVisible={toggleClassYMDNotVisible}
                 toggleClassEditDeleteConfirmationVisible={toggleClassEditDeleteConfirmationVisible}
               />
             } />
             <Route  path={ROUTES.ABOUT} component={About} />
-            <Route  path={ROUTES.ACCOUNT_SETTINGS} render={() => <Settings years={years} />} />
+            <Route  path={ROUTES.ACCOUNT_SETTINGS} render={() => <Settings years={years} authUser={authUser} authUserName={authUserName} />} />
         </Switch>
       </section>
     )

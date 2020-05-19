@@ -3,7 +3,11 @@
 
 .Years {
     @include YearsDaysMonths;
+    margin-top: 45px;
 
+    .path {
+        @include path;
+    }
 }
 
 .YearsList {

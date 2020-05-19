@@ -8,8 +8,7 @@ import classes from './Footer.module.scss';
 function Footer() {
   return (
     <section id="Footer" className={classes.Footer}>
-        <h1>Footer</h1>
-        <p>2020</p>
+        <p>Made by me in 2020</p>
 
     </section>
   );

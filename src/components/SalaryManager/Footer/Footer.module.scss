@@ -1,12 +1,17 @@
 @import '../../../Routing.module.scss';
 
 .Footer {
+    font-family: 'Montserrat', 'NUNITO', 'Ubuntu', 'Raleway', 'Karla', sans-serif;
     display: flex;
     flex-direction: row;
-    text-align: center;
+    text-align: right;
     width: 810px;
     box-sizing: border-box;
     justify-content: space-between;
-
     margin: 0 auto;
+
+    p {
+        margin-left: auto;
+        font-size: 14px;
+    }
 }

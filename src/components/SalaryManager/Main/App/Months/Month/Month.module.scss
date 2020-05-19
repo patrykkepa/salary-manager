@@ -71,6 +71,14 @@
     @include YearMonthDay-edit--button;
 }
 
+.MonthEditButtonConfirm {
+    @include YearMonthDay-edit--buttonConfirm
+}
+
+.MonthEditTrigger {
+    @include YearMonthDay-edit--trigger;
+}
+
 .MonthEditInput {
     @include YearDayMonth-edit-create--input;
 }
@@ -79,18 +87,19 @@
     @include YearDayMonth-edit-create;
 }
 
-.MonthCreateTitle {
-    @include YearDayMonth-edit-create--title;
-}
-
-.MonthCreateInput {
-    @include YearDayMonth-edit-create--input;
-}
-
 .MonthCreateButton {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 20px;
+    padding: 30px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: auto;
+
+
 
     a {
         margin: 30px auto;
@@ -100,6 +109,14 @@
         cursor: pointer;
         text-decoration: none;
     }
+}
+
+.MonthCreateTitle {
+    @include YearDayMonth-edit-create--title;
+}
+
+.MonthCreateInput {
+    @include YearDayMonth-edit-create--input;
 }
 
 .monthCreateButtons {
@@ -140,4 +157,15 @@
 
 .monthDeleteConfirmationVisible {
     @include YearMonthDay-delete-ConfirmationVisible
+}
+
+.invalidFormat {
+    p {
+        color: rgb(255, 58, 58) !important;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin: 5px 0;
+    }
+
 }

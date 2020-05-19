@@ -76,7 +76,6 @@ class AppBuilder extends React.Component {
           creationActive: false,
           editionActive: false,
         };
-        console.log('state app buildera' , this.state);
         
       }
     componentDidMount() {
@@ -84,7 +83,6 @@ class AppBuilder extends React.Component {
       this.setState({ loading: true });
       
       this.props.firebase.years().on('value', snapshot => { 
-        console.log('firabase pobrało snapshot')
 
         const yearObject = snapshot.val();
         if (yearObject) {
@@ -865,6 +863,7 @@ class AppBuilder extends React.Component {
         
                   <Main 
                     authUserUid={authUser.uid}
+                    authUser={authUser}
                     loading={loading}
                     creationActive={creationActive}
                     editionActive={editionActive}

@@ -24,6 +24,13 @@
     @include YearDayMonth-info;
 }
 
+.YearInfoBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+}
+
 .YearEdit {
     @include YearDayMonth-edit-create;
 }
@@ -34,6 +41,14 @@
 
 .YearEditButton {
     @include YearMonthDay-edit--button;
+}
+
+.YearEditButtonConfirm {
+    @include YearMonthDay-edit--buttonConfirm
+}
+
+.YearEditTrigger {
+    @include YearMonthDay-edit--trigger;
 }
 
 .YearEditInput {
@@ -64,6 +79,13 @@
         background: none;
         cursor: pointer;
         text-decoration: none;
+        color: rgba(0, 0, 0, 0.4);
+
+        :hover {
+            transition: ease-in;
+            transition-duration: 100ms;
+            color: black;
+        }
     }
 }
 
@@ -105,4 +127,15 @@
 
 .yearDeleteConfirmationVisible {
     @include YearMonthDay-delete-ConfirmationVisible
+}
+
+.invalidFormat {
+    p {
+        color: rgb(255, 58, 58) !important;
+        font-size: 12px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin: 5px 0;
+    }
+
 }

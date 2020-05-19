@@ -1,7 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
-
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { faBan } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt} from '@fortawesome/free-regular-svg-icons'
+import { faWindowClose } from '@fortawesome/free-regular-svg-icons'
+import { faEllipsisV } from '@fortawesome/free-solid-svg-icons'
 
 import * as ROUTES from '../../../../../../constants/routes';
 
@@ -33,28 +38,35 @@ function invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, d
 function Day(props) {
   return (
     <div id={props.day.dayName} className={(props.day.created.dayIsCreated ? classes.Day : (classes.Day, classes.DayNotCreated) )}>
-      <div className={classes.DayInfo}>
-        <div><h1>{props.day.dayName}</h1></div>
-        
-        {/* to wyświetlamy jezeli dany miesiac w state isCreted: true - wtedy usuwa nam klase notCreted */}
-        <div className={(props.day.created.dayIsCreated ? classes.DayInfoBody : classes.DayInfoBodyNotVisible) }>
-          <div><h3>{props.day.dayHoursAmount.dayHoursAmount}h</h3></div>
-          <div className={classes.DayInfoMoney}>
-            <h4>{props.day.dayTip.dayTip}</h4>
-            <h2>{props.day.dayEarned.dayEarned},-</h2>
+      <Link>
+        <div className={classes.DayInfo}>
+          <div><h1>{props.day.dayName}</h1></div>
+          
+          {/* to wyświetlamy jezeli dany miesiac w state isCreted: true - wtedy usuwa nam klase notCreted */}
+          <div className={(props.day.created.dayIsCreated ? classes.DayInfoBody : classes.DayInfoBodyNotVisible) }>
+            <div>
+              <h3>
+                {props.day.dayHoursAmount.dayHoursAmount}h
+              </h3>
+            </div>
+            <div className={classes.DayInfoMoney}>
+              <p>TIP: </p>
+              <h4> {props.day.dayTip.dayTip}</h4>
+              <h2>{props.day.dayEarned.dayEarned},-</h2>
+            </div>
           </div>
         </div>
-        
-
-      </div>
+      </Link>
+      
           
       {/* to tez warunkujemy */}
       {props.day.created.dayIsCreated ? 
-        <button  className={classes.DayEditButton} onClick={() => {
+        <button  className={classes.DayEditTrigger} onClick={() => {
           props.turnOnDayEdition(props.year.yearName, props.month.uid, props.day.uid); 
-          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}
-        >⚙️</button> 
-      : <button className={classes.DayEditButton} onClick={() => {
+          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}>
+          <FontAwesomeIcon icon={faEllipsisV} />
+        </button> 
+      : <button className={classes.DayCreateButton} onClick={() => {
           props.turnOnDayCreation(props.year.yearName, props.month.uid, props.day.uid); 
           props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}
         >➕</button>}
@@ -73,7 +85,7 @@ function DayEdit(props) {
 
   return(
     <form className={classes.DayCreate} >
-      <div className={classes.DayEditTitle}><p>Edit </p> <h1>{props.day.dayName}</h1> <p> here</p></div>
+      <div className={classes.DayEditTitle}><h1>{props.day.dayName}</h1></div>
       <div className={classes.DayCreateInput}>
         <input
           type="rate"
@@ -101,56 +113,60 @@ function DayEdit(props) {
         />
       </div>
       <div className={classes.dayEditButtons}>
-        <div id="invalidFormat"></div>
+        <div id="invalidFormat" className={classes.invalidFormat}></div>
         <button className={classes.DayEditButton} onClick={(event) => { 
-          props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayDeleteConfirmation, classes.dayEditButtonsNotVisible, classes.dayDeleteConfirmationVisible);}}
-        >🗑️</button>
+          props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayDeleteConfirmation, classes.dayEditButtonsNotVisible, classes.dayDeleteConfirmationVisible);}}>
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
         <button className={classes.DayEditButton} onClick={() => {
           props.turnOffDayEdition(props.year.yearName, props.month.uid, props.day.uid);  
-          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}
-        >❌</button>
+          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}>
+          <FontAwesomeIcon icon={faBan} />
+        </button>
         {
           isValid ? 
             <button className={classes.DayEditButton} disabled={isFilled} onClick={(event) => {
               props.onEditDay(event, props.year.yearName, props.month.uid, props.day.uid, props.day.dayRate.dayRate, props.day.dayRate.specialRate, props.day.startHour.startHour, props.day.endHour.endHour, props.day.dayHoursAmount.dayHoursAmount, props.day.dayTip.dayTip); 
-              props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayEditConfirmation, classes.dayEditButtonsNotVisible, classes.dayEditConfirmationVisible);}}
-            >✔️</button>
+              props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayEditConfirmation, classes.dayEditButtonsNotVisible, classes.dayEditConfirmationVisible);}}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
           : <button className={classes.DayEditButton} disabled={isFilled} onClick={(event) => {
-              invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid)}}
-            >✔️</button>
+              invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid)}}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button>
         }
       </div>
 
       <div className={classes.dayEditConfirmation}>
-        <p>Are you sure you want to change the data?</p>
+        <p>Update?</p>
         <div>
-          <button className={classes.DayEditButton} onClick={(event) => {
+          <button className={classes.DayEditButtonConfirm} onClick={(event) => {
             invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid); 
             props.cancelEditDay(event, props.year.yearName, props.month.uid, props.day.uid);
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayEditConfirmation, classes.dayEditButtonsNotVisible, classes.dayEditConfirmationVisible);}}
           >NO</button>
-          <button className={classes.DayEditButton} onClick={(event) => {
+          <button className={classes.DayEditButtonConfirm} onClick={(event) => {
             props.turnOffDayEdition(props.year.yearName, props.month.uid, props.day.uid); 
             props.setDayEarned(props.year.yearName, props.month.uid, props.day.uid, props.day.dayRate.dayRate, props.day.dayHoursAmount.dayHoursAmount, props.day.dayTip.dayTip); 
             props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible); 
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayEditConfirmation, classes.dayEditButtonsNotVisible, classes.dayEditConfirmationVisible);}}
-          >YES</button>
+          >GO!</button>
         </div>
       </div>
         
       <div className={classes.dayDeleteConfirmation}>            
-        <p>Are you sure you want to delete day?</p>
+        <p>Delete?</p>
         <div>
-          <button className={classes.DayEditButton} onClick={(event) => {
+          <button className={classes.DayEditButtonConfirm} onClick={(event) => {
             invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid); 
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayDeleteConfirmation, classes.dayEditButtonsNotVisible, classes.dayDeleteConfirmationVisible);}}
           >NO</button>
-          <button className={classes.DayEditButton} onClick={(event) => {
+          <button className={classes.DayEditButtonConfirm} onClick={(event) => {
             props.turnOffDayEdition(props.year.yearName, props.month.uid, props.day.uid);
             props.onDeleteDay(props.year.yearName, props.month.uid, props.day.uid, props.month.monthRate.monthRate);
             props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible); 
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayEditButtons, classes.dayDeleteConfirmation, classes.dayEditButtonsNotVisible, classes.dayDeleteConfirmationVisible);}}
-          >YES</button>
+          >GO!</button>
         </div>
       </div>
 
@@ -200,37 +216,40 @@ function DayCreate(props) {
       
 
       <div className={classes.dayCreateButtons}>
-        <div id="invalidFormat"></div>
+        <div id="invalidFormat" className={classes.invalidFormat}></div>
         <button className={classes.DayEditButton} onClick={() => {
           props.turnOffDayCreation(props.year.yearName, props.month.uid, props.day.uid);  
-          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}
-        >❌</button>
+          props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible)}}>
+          <FontAwesomeIcon icon={faBan} />
+        </button>
         {
           isValid ? 
             <button className={classes.DayEditButton} type="submit" disabled={isFilled} onClick={(event) => {
-              props.toggleClassEditDeleteConfirmationVisible(event, classes.dayCreateButtons, classes.dayCreateConfirmation, classes.dayCreateButtonsNotVisible, classes.dayCreateConfirmationVisible);}}
-            >✔️</button> 
+              props.toggleClassEditDeleteConfirmationVisible(event, classes.dayCreateButtons, classes.dayCreateConfirmation, classes.dayCreateButtonsNotVisible, classes.dayCreateConfirmationVisible);}}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button> 
           : <button className={classes.DayEditButton} type="submit" disabled={isFilled} onClick={(event) => 
-              invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid)}
-            >✔️</button> 
+              invalidFormatAlert(event, dayRateValid, startHourValid, endHourValid, dayTipValid)}>
+              <FontAwesomeIcon icon={faCheck} />
+            </button> 
         }
         
       </div>
 
       <div className={classes.dayCreateConfirmation}>
-        <p>Do you want to create this day?</p>
+        <p>Create?</p>
         <div>
-          <button className={classes.DayEditButton} onClick={(event) => {
+          <button className={classes.DayEditButtonConfirm} onClick={(event) => {
             props.turnOffDayCreation(props.year.yearName, props.month.uid, props.day.uid);  
             props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible); 
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayCreateButtons, classes.dayCreateConfirmation, classes.dayCreateButtonsNotVisible, classes.dayCreateConfirmationVisible);}}
           >NO</button>
-          <button className={classes.DayEditButton} onClick={event => {
+          <button className={classes.DayEditButtonConfirm} onClick={event => {
             props.onCreateDay(event, props.year.yearName, props.month.uid, props.day.uid, props.day.dayRate.dayRate, props.day.dayTip.dayTip, props.day.dayHoursAmount.dayHoursAmount); 
             props.turnOffDayCreation(props.year.yearName, props.month.uid, props.day.uid);  
             props.toggleClassYMDNotVisible(classes.Day, classes.DayNotCreated, classes.dayNotVisible); 
             props.toggleClassEditDeleteConfirmationVisible(event, classes.dayCreateButtons, classes.dayCreateConfirmation, classes.dayCreateButtonsNotVisible, classes.dayCreateConfirmationVisible);}}
-          >YES</button>
+          >GO!</button>
         </div>
         
       </div>

@@ -3,6 +3,10 @@
 
 .Months {
     @include YearsDaysMonths;
+
+    .path {
+        @include path;
+    }
 }
 
 .MonthsList {

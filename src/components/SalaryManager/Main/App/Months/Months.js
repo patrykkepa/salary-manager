@@ -35,6 +35,8 @@ class Months extends React.Component {
 
     return(
       <div id="Months" className={classes.Months}>
+
+      
         <Switch>
           <Route  exact path={ROUTES.MONTHS} render={() => 
             <React.Fragment>
@@ -42,10 +44,11 @@ class Months extends React.Component {
                 years.map(year => 
                 year.active.yearActive ? 
                 (<React.Fragment> 
-                  <p>{year.yearName}</p>
+                  <p className={classes.path}>{year.yearName} ➜</p>
                   <ul className={classes.MonthsList}>
                   {year.months.map(month => 
                     month.creation.monthCreation ?
+                    
                       <MonthCreate 
                         year={year} 
                         month={month} 
@@ -68,7 +71,8 @@ class Months extends React.Component {
                         toggleClassYMDNotVisible={toggleClassYMDNotVisible}
                         toggleClassEditDeleteConfirmationVisible={toggleClassEditDeleteConfirmationVisible}
                       />
-                    : <Month 
+                    : 
+                    <Month 
                         key={month.uid} 
                         year={year} 
                         month={month} 
@@ -83,7 +87,7 @@ class Months extends React.Component {
                   </ul>
                 </React.Fragment>)  : null )
               :
-                <p>There is no year added.</p>} 
+                <h5>There is no year added.</h5>} 
             </React.Fragment>  } 
           />
 
