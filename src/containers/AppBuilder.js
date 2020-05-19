@@ -6,6 +6,7 @@ import Firebase, { withFirebase } from '../components/Firebase/index'
 
 
 import Navigation from '../components/SalaryManager/Navigation/Navigation';
+import MobileMenu from '../components/SalaryManager/NavigationMobile/MobileMenu';
 import Main from '../components/SalaryManager/Main/Main';
 import App from '../components/SalaryManager/Main/App/App';
 import About from '../components/SalaryManager/Main/About/About';
@@ -859,7 +860,14 @@ class AppBuilder extends React.Component {
         return(
           <AuthUserContext.Consumer>
             {authUser => (
+              <React.Fragment>
+
+              
+              <Navigation />
+              <MobileMenu /> 
               <section id="App Builder" className={classes.AppBuilder}>
+
+              
         
                   <Main 
                     authUserUid={authUser.uid}
@@ -920,6 +928,7 @@ class AppBuilder extends React.Component {
                   <Footer />
               
               </section>
+              </React.Fragment>
           )}
           </AuthUserContext.Consumer>
 

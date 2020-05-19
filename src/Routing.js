@@ -23,20 +23,6 @@ class Routing extends React.Component {
  
       <Router> 
         <ScrollToTop>
-          {/* {
-            adres.includes('landing') ?
-              null
-            : 
-            <React.Fragment>
-              <Navigation />
-              <MobileMenu /> 
-            </React.Fragment>
-              
-          } */}
-
-          <Navigation />
-          <MobileMenu /> 
-          
 
           <Switch>
             <Route exact path={ROUTES.SIGN_IN} component={Landing} />
