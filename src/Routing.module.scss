@@ -265,6 +265,10 @@ $color-nav-logo: #0098ff;
   .Main {
     padding: 57px 0 0 0 !important;
     min-height: calc(100vh - 57px) !important;
+
+    h5 {
+      padding: 0 10px !important;
+    }
   }
 
   .Year,
@@ -273,6 +277,7 @@ $color-nav-logo: #0098ff;
     width: 90% !important;
     margin: 0 auto !important;
     padding: 0 !important;
+
   }
 
   .YearInfo,

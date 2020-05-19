@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, HashRouter } from 'react-router-dom';
 import { withAuthentication } from './components/Session/index';
 
+import ScrollToTop from './components/SalaryManager/ScrollToTop/ScrollToTop';
 import Landing from './components/Auth/Landing/Landing';
 import AppBuilder from './containers/AppBuilder';
 import Navigation from './components/SalaryManager/Navigation/Navigation';
@@ -20,15 +21,18 @@ class Routing extends React.Component {
     return (
  
       <Router>
-        <Navigation />
-        <MobileMenu />
+        <ScrollToTop>
+          <Navigation />
+          <MobileMenu />
 
-        <Switch>
-          <Route exact path={ROUTES.SIGN_IN} component={Landing} />
-          
-          <Route path={ROUTES.APP_BUILDER} render={() => <AppBuilder />} />
+          <Switch>
+            <Route exact path={ROUTES.SIGN_IN} component={Landing} />
+            
+            <Route path={ROUTES.APP_BUILDER} render={() => <AppBuilder />} />
 
-        </Switch>
+          </Switch>
+        </ScrollToTop>
+        
       </Router>
   
     );
