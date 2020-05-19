@@ -79,12 +79,12 @@
         background: none;
         cursor: pointer;
         text-decoration: none;
-        color: rgba(0, 0, 0, 0.4);
+        color: #ffcd00;
 
         :hover {
             transition: ease-in;
             transition-duration: 100ms;
-            color: black;
+            color: #fab201;
         }
     }
 }

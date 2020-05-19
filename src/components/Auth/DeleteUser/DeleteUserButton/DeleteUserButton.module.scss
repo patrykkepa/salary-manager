@@ -15,3 +15,39 @@
         border: blue !important;
     }
 }
+
+.DeleteUserButtonNotVisible {
+    display: none;
+}
+
+.DeleteUserConfirmation {
+    display: none;
+
+    h2 {
+        font-size: 25px;
+        font-weight: 500;
+        color: #3c3c3c;
+    }
+
+    button {
+        text-decoration: none;
+        font-size: 28px;
+        margin: 0 15px;
+        padding: 30px 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #fab301b3;
+
+        :hover {
+            color: #fab201
+        }
+    }
+
+}
+
+.DeleteUserConfirmationVisible {
+    display: flex;
+    flex-direction: column;
+
+}

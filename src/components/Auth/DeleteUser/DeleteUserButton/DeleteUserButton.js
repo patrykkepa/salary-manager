@@ -19,13 +19,6 @@ class DeleteUserButton extends React.Component {
   
 onRemove(props) {
 
-    // const Navigation = document.getElementById('Navigation');
-    // Navigation.classList.add('NavigationNotVisible');
-    
-    // console.log('klikam w hamburger');
-    // hamburger.map(hamburger => {
-    //   hamburger.classList.toggle('is-active')
-    // })
       this.props.firebase.auth.onAuthStateChanged(
         authUser => {
 
@@ -46,16 +39,40 @@ onRemove(props) {
       );
     }
 
-  
+    toggleClassEditDeleteConfirmationVisible(event, buttonsClass, confirmationClass, buttonsNotVisibleClass, confirmationVisibleClass) {
+      const buttons = Array.from(document.getElementsByClassName(buttonsClass));
+      const confirmation = Array.from(document.getElementsByClassName(confirmationClass));
+      console.log(buttons);
+      console.log(confirmation);
+      buttons.map(button => {
+        button.classList.toggle(buttonsNotVisibleClass)
+      });
+      confirmation.map(confirmation => {
+        confirmation.classList.toggle(confirmationVisibleClass)
+      })
+      event.preventDefault();
+    }
   
 
   render() {
-
     return (
        <React.Fragment>
-        <button className={classes.DeleteUserButton} onClick={() => this.onRemove()}>
+        <button className={classes.DeleteUserButton} onClick={(event) => this.toggleClassEditDeleteConfirmationVisible(event, classes.DeleteUserButton, classes.DeleteUserConfirmation, classes.DeleteUserButtonNotVisible, classes.DeleteUserConfirmationVisible)}>
           Remove Account
         </button>
+
+        <div className={classes.DeleteUserConfirmation}>            
+          <h2>Delete Account?</h2>
+          <div>
+            <button className={classes.YearEditButtonConfirm} onClick={(event) => {
+              this.toggleClassEditDeleteConfirmationVisible(event, classes.DeleteUserButton, classes.DeleteUserConfirmation, classes.DeleteUserButtonNotVisible, classes.DeleteUserConfirmationVisible)}}
+            >NO</button>
+            <button className={classes.YearEditButtonConfirm} onClick={(event) => {
+              this.onRemove()
+              this.toggleClassEditDeleteConfirmationVisible(event, classes.DeleteUserButton, classes.DeleteUserConfirmation, classes.DeleteUserButtonNotVisible, classes.DeleteUserConfirmationVisible)}}
+            >YES</button>
+          </div>
+        </div>
  
        </React.Fragment>
         

@@ -94,6 +94,20 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  color: #fab301b3;
+
+  :hover {
+    color: #fab201
+  }
+}
+
+button:disabled,
+button[disabled] {
+  color: rgba(0, 0, 0, 0.3) !important;
+
+  :hover {
+    color: rgba(0, 0, 0, 0.3) !important;
+  }
 
 }
 
@@ -104,6 +118,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  color: #ffcd00;
 
 }
 
@@ -115,10 +130,11 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
+  // color: rgba(0, 0, 0, 0.4);
+  color: #fab301b3;
 
   :hover {
-    color: black;
+    color: #fab201;
     transition: ease-in;
     transition-duration: 100ms;
   }
@@ -305,7 +321,8 @@ $color-nav-logo: #0098ff;
   .MonthEditTrigger,
   .DayEditTrigger {
     padding: 18px 0 !important;
-    margin-left: 10px !important;
+    margin-left: 20px !important;
+    margin-right: 10px;
 
     h1,
     h2,
@@ -320,7 +337,14 @@ $color-nav-logo: #0098ff;
     width: 90% !important;
     padding: 0 0 !important;
     margin: 0 auto !important;
-    ;
+
+    a {
+      padding-left: 10px !important;
+    }
+
+    button {
+      padding-right: 10px !important;
+    }
   }
 
   .MonthCreateButton,
@@ -411,6 +435,19 @@ $color-nav-logo: #0098ff;
       button {
         background-color: white !important;
       }
+    }
+
+  }
+
+  .DeleteUserConfirmation {
+
+    h2 {
+      font-size: 24px !important;
+    }
+
+    button {
+      font-size: 20px !important;
+      padding: 15px 0 !important;
     }
 
   }

@@ -30,6 +30,7 @@ function Settings(props) {
           <p>Thank you for checking my portfolio app.</p>
           <DeleteUserButton years={props.years} />
         </div>
+
         
 
     </div>
