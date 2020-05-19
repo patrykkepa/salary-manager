@@ -1,7 +1,7 @@
 export const LANDING = '/salary-manager';
 
 
-export const SIGN_IN = '/salary-manager';
+export const SIGN_IN = '/salary-manager/landing';
 export const SIGN_UP = '/salary-manager/signup';
 export const PASSWORD_FORGET = '/salary-manager/pw-forget';
 export const PASSWORD_CHANGE = '/salary-manager/pw-change';

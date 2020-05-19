@@ -12,7 +12,7 @@ const withAuthorization = Component => {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           if (!authUser) {
-            this.props.history.replace("https://patrykkepa.github.io/salary-manager/" );         
+            this.props.history.push(ROUTES.SIGN_IN);
           }
         },
       );

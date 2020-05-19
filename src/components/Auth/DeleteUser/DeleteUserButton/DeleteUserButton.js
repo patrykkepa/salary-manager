@@ -1,8 +1,11 @@
 import React from 'react';
 import { withFirebase } from '../../../Firebase';
 import { withAuthentication } from '../../../Session/index'
-import classes from './DeleteUserButton.module.scss';
+import { withRouter } from 'react-router-dom';
 
+import * as ROUTES from '../../../../constants/routes';
+
+import classes from './DeleteUserButton.module.scss';
 
 
 
@@ -16,23 +19,33 @@ class DeleteUserButton extends React.Component {
   
 onRemove(props) {
 
+    // const Navigation = document.getElementById('Navigation');
+    // Navigation.classList.add('NavigationNotVisible');
+    
+    // console.log('klikam w hamburger');
+    // hamburger.map(hamburger => {
+    //   hamburger.classList.toggle('is-active')
+    // })
       this.props.firebase.auth.onAuthStateChanged(
         authUser => {
-          
-          this.props.firebase.user(authUser.uid).remove()
+
+          authUser.delete()
           .then(
-            authUser.delete(),
+            this.props.firebase.user(authUser.uid).remove()
+            
           ).then(
             function() {
-
             window.location.reload();
             
-          }).catch(function(error) {
+          }).then(
+            this.props.history.push(ROUTES.SIGN_IN)
+          ).catch(function(error) {
             console.log('error', error)
           });
         },
       );
     }
+
   
   
 
@@ -53,4 +66,4 @@ onRemove(props) {
 
 
 
-export default withFirebase(withAuthentication(DeleteUserButton));
+export default withRouter(withFirebase(withAuthentication(DeleteUserButton)));
