@@ -44,29 +44,44 @@ class NavigationAuth extends React.Component {
     clickedLink.classList.add(classes.linkClassActive)
   
   } 
-
+ 
   triggerMenu = () => {
     const hamburger = Array.from(document.getElementsByClassName('hamburger'));
     const mobileMenu = document.getElementById('mobileMenu');
+
+      hamburger.map(hamburger => {
+        hamburger.classList.toggle('is-active')
+      });
+        mobileMenu.classList.toggle('menu-open')
+     
     
-    console.log('klikam w hamburger');
-    hamburger.map(hamburger => {
-      hamburger.classList.toggle('is-active')
-    })
-    mobileMenu.classList.toggle('menu-open');
   }
 
   render() { 
     const adres = window.location.href;
+    const {
+      creationActive,
+      editionActive
+    } = this.props
+
     return (
       
       <section id="Navigation" className={classes.Navigation}>
 
-        <button className="hamburger hamburger--collapse" type="button" onClick={() => this.triggerMenu()}>
+        {
+          (creationActive || editionActive) ?
+            null
+          :
+          <button className="hamburger hamburger--collapse" type="button" onClick={() => this.triggerMenu()}>
             <span className="hamburger-box">
                 <span className="hamburger-inner"></span>
             </span>
-        </button>
+          </button> 
+        }  
+          
+        
+
+        
 
         <div className={classes.Nav}>
           <ul>

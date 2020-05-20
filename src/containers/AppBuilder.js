@@ -856,18 +856,21 @@ class AppBuilder extends React.Component {
     
     render() {
 
-      const {loading, creationActive, editionActive, years, yearName, yearRate, monthRate, dayRate, startHour, endHour, dayTip, previousDayRate, previousStartHour, previousEndHour, previousDayTip} = this.state
+      const {loading, hamburgerDisabled, creationActive, editionActive, years, yearName, yearRate, monthRate, dayRate, startHour, endHour, dayTip, previousDayRate, previousStartHour, previousEndHour, previousDayTip} = this.state
         return(
           <AuthUserContext.Consumer>
             {authUser => (
-              <React.Fragment>
-
               
-              <Navigation />
-              <MobileMenu /> 
               <section id="App Builder" className={classes.AppBuilder}>
-
+                
+              {
+                (creationActive || editionActive) ?
+                  null
+                :
+                  <Navigation />
+              }
               
+              <MobileMenu /> 
         
                   <Main 
                     authUserUid={authUser.uid}
@@ -928,7 +931,7 @@ class AppBuilder extends React.Component {
                   <Footer />
               
               </section>
-              </React.Fragment>
+
           )}
           </AuthUserContext.Consumer>
 
