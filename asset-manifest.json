@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/salary-manager/static/css/main.41c38101.chunk.css",
-    "main.js": "/salary-manager/static/js/main.876f6c75.chunk.js",
-    "main.js.map": "/salary-manager/static/js/main.876f6c75.chunk.js.map",
+    "main.js": "/salary-manager/static/js/main.c60611b8.chunk.js",
+    "main.js.map": "/salary-manager/static/js/main.c60611b8.chunk.js.map",
     "runtime-main.js": "/salary-manager/static/js/runtime-main.b414d3ad.js",
     "runtime-main.js.map": "/salary-manager/static/js/runtime-main.b414d3ad.js.map",
     "static/js/2.8b369860.chunk.js": "/salary-manager/static/js/2.8b369860.chunk.js",
     "static/js/2.8b369860.chunk.js.map": "/salary-manager/static/js/2.8b369860.chunk.js.map",
     "index.html": "/salary-manager/index.html",
-    "precache-manifest.1d94b4e5c46531f982ccb38f91aa53ee.js": "/salary-manager/precache-manifest.1d94b4e5c46531f982ccb38f91aa53ee.js",
+    "precache-manifest.bcb7f97426261bbfee9eaceadcd0769d.js": "/salary-manager/precache-manifest.bcb7f97426261bbfee9eaceadcd0769d.js",
     "service-worker.js": "/salary-manager/service-worker.js",
     "static/css/main.41c38101.chunk.css.map": "/salary-manager/static/css/main.41c38101.chunk.css.map",
     "static/js/2.8b369860.chunk.js.LICENSE.txt": "/salary-manager/static/js/2.8b369860.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b414d3ad.js",
     "static/js/2.8b369860.chunk.js",
     "static/css/main.41c38101.chunk.css",
-    "static/js/main.876f6c75.chunk.js"
+    "static/js/main.c60611b8.chunk.js"
   ]
 }
