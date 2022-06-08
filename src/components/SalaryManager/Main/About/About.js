@@ -18,7 +18,7 @@ function About() {
           <div className={classes.AboutApp}>
             <h1>Salary Manager</h1>
             <h2><FontAwesomeIcon icon={faCaretRight} /> What it is </h2>
-            <p>It is written by me portfolio web app, that helps waiters track salaries and tips on a year, month and day scale. </p>
+            <p>It is written by me with Firebase, React and Node stack web app, that helps waiters track salaries and tips on a year, month and day scale. </p>
             <p>I wanted to create an application that would improve the functioning of the environment in which I work on a daily basis.</p>
             <h2><FontAwesomeIcon icon={faCaretRight} /> What it is for </h2>
             <p>This is a CRUD application. The application user is able to: </p> 
@@ -32,7 +32,7 @@ function About() {
             <p>Firebase - Realtime Database</p>
           </div>
           <div className={classes.AboutMe}>
-            <p> If you want to now more - contact me on:</p>
+            <p> If you want to know more - contact me on:</p>
             <a href="mailto:patrykkepa.work@gmail.com"><h2><FontAwesomeIcon icon={faEnvelopeOpen} />  patrykkepa.work@gmail.com</h2></a>
 
           </div>

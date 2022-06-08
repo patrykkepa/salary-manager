@@ -85,7 +85,7 @@ class NavigationAuth extends React.Component {
 
         <div className={classes.Nav}>
           <ul>
-              <li><a>SM</a></li>
+              <li><a><b>SM</b></a></li>
           </ul>
           <ul>
               <li >
